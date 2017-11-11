@@ -33,22 +33,25 @@ As a blockchain/cryptocurrency enthusiast I'm confident the price of ETH will go
 - As a father I want to make sure: if my son lost his private key he can still unlock the funds.
 - As a father I want to make sure: if the return of investment is +100x this condions are executed:
     1. Only 10% of ether gets unlocked at 21
-    2. A passive income contracts release 1/100th of ether every month (PassiveIncome.sol)
+    2. A passive income contracts release 1/100th of ether every month (PassiveIncome.sol extends ReleasingStrategy.sol)
 
 >TODO: List other usecases
 
 **Flow**
 
-1. I deposit N eth to `LeapOfFaith.sol`
+1. As a Owner, I deposit N eth to `LeapOfFaith.sol`
 2. FHT Tokens will be issued when ETH are received into the contract.
-3. 1% Fee is collected
-4. Eth gets locked up until `RELEASE_TIMESTAMP`
+3. A Faith Wallet will be generated for the benificiary
+4. 1% Fee is collected
+5. Eth gets locked up until `RELEASE_TIMESTAMP` into the benificiary Faith Wallet
+6. FHT Tokens are sent to the Owner
+
 
 **Scenario A, conditions:**
 
     * Sufficient time has passed to unlock the eth (TIMESTAMP >= RELEASE_TIMESTAMP)
     * Beneficiary has his private key (NO_AUTH_REQUIRED)
-    * Tokens are sent to the beneficiary or a RealingStrategy contract is invoked if any (PassiveIncome, Donate, Speculation)
+    * Tokens are sent to the beneficiary or a ReleasingStrategy contract is invoked if any (PassiveIncome, Donate, Speculation)
 
 **Scenario B, conditions:**
 
@@ -57,7 +60,27 @@ As a blockchain/cryptocurrency enthusiast I'm confident the price of ETH will go
     * 3% fee is payed for Immediate ETH withdrawal.
     * Tokens are sent back to the owner (depositor)
 
->TODO: Describe IRL indentification process
+### IRL indentification process - notes
+
+When depositing I store, name, surname, date of birth, city, hospital name?.
+
+During the year As a Owner I can add valid documents for the benificiary to use the authntifaction process
+    Ex: ID card, passport, pictures.
+
+IRL indentification aims to be a completely decentralized solution for ID verification
+
+It works like internet banking, n27 etc..
+
+I upload my picture + passport picture
+
+The Decentralized Identification Service, a separate DAO, will use computer vision algorithm to check if it's the correct match
+
+the algorithm runs over all the uploaded document by the owner.
+
+In order to be completely decentralized the algorithm will run on golem
+
+Pictures of ID will be stored and encryted into IPFS 
+
 
 **Common rules**
 
@@ -72,6 +95,7 @@ As a blockchain/cryptocurrency enthusiast I'm confident the price of ETH will go
 7. *Optional* Where v is the amount you had when the withdrawal was requested,
 8. *Optional* totalSupply is the total amount of tokens in circulation at the time when Complete Withdrawal was called.
 9. *Optional* After withdrawal to ETH, tokens are burned, thus deflating the token supply.
+10. After N year unclaimed Funds will be released to the Fee Pot
 
 **Game theory**
 
@@ -94,5 +118,5 @@ Who is the bigger hodler? Basically the bigger the holder, the bigger chunk the 
 
 ### Uncertainties
 
-- FHT token may not be necessary
-- It's tricky to design an IRL indentification service completely decentralised.
+- FHT token may not be necessary, if not should FHT be tradable?
+- It's tricky to design an IRL indentification service completely decentralised. *See proposal*
