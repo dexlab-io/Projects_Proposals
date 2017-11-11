@@ -20,7 +20,8 @@
 ### Goals
 
 Providing the possibility to lock up ether for beneficiary which will unlock upon certain condition.
-The service need to act as trusted party to IRL indetification of the benificiary.
+
+The service need to act as trusted party to IRL indentification of the benificiary.
 
 ### Description
 
@@ -28,9 +29,9 @@ As a blockchain/cryptocurrency enthusiast I'm confident the price of ETH will go
 
 **Use cases:**
 - As a father I want to lock up 5 ether for my new born.
-- As a father I want to make sure my son won't be able to unlock the ether before he is 21
-- As a father I want to make sure if the beneficiary had lost the private key he can still unlock the funds.
-- As a father I want to make sure if the return of investment is +100x this condions are met:
+- As a father I want to make sure: my son won't be able to unlock the ether before he is 21
+- As a father I want to make sure: if my son lost his private key he can still unlock the funds.
+- As a father I want to make sure: if the return of investment is +100x this condions are executed:
     1. Only 10% of ether gets unlocked at 21
     2. A passive income contracts release 1/100th of ether every month (PassiveIncome.sol)
 
@@ -38,10 +39,10 @@ As a blockchain/cryptocurrency enthusiast I'm confident the price of ETH will go
 
 **Flow**
 
-1. I deposit N eth to LeapOfFaith.sol
+1. I deposit N eth to `LeapOfFaith.sol`
 2. FHT Tokens will be issued when ETH are received into the contract.
 3. 1% Fee is collected
-4. Eth gets locked up until RELEASE_TIMESTAMP
+4. Eth gets locked up until `RELEASE_TIMESTAMP`
 
 **Scenario A, conditions:**
 
@@ -53,10 +54,11 @@ As a blockchain/cryptocurrency enthusiast I'm confident the price of ETH will go
 
     * Sufficient time has NOT passed to unlock the eth (TIMESTAMP < RELEASE_TIMESTAMP | INSTANT_WITHDRAW)
     * Depositor has his private key (NO_AUTH_REQUIRED)
-    * 1% fee is payed for Immediate ETH withdrawal.
-    * Tokens are sent to the Depositor
+    * 3% fee is payed for Immediate ETH withdrawal.
+    * Tokens are sent back to the owner (depositor)
 
 >TODO: Describe IRL indentification process
+
 **Common rules**
 
 1. For all Withdrawals: FHT tokens will be destroyed after withdrawal.
@@ -74,17 +76,20 @@ As a blockchain/cryptocurrency enthusiast I'm confident the price of ETH will go
 **Game theory**
 
 If enough holders enter the contract, Price of ETH should go up, because ETH is removed from the market.
-Better than normal holding, since holders can claim from the fee-pot, after holding for the minimum time
+
+Better than normal holding, since holders can claim from the fee-pot, after holding for the minimum time, 
 Should the ETH price spike to say $500 USD, immediate withdraw will still be possible.
-HODL tokens may be trade-able on an exchange, and on face value 1 FHT = 1 ETH, should an exchange add them.
+
+FHT tokens may be trade-able on an exchange, and on face value 1 FHT = 1 ETH, should an exchange add them.
+
 Who is the bigger hodler? Basically the bigger the holder, the bigger chunk the reward they get, and yes, the risk is there that there could suddenly be a larger hodler than you coming in! (The reward is based in the Total Supply, and it will be increased when new ether is locked in, but also decreased in your favour if weak-hands use the quick withdraw)
 
 ### Budget
 
-Dev Time: 300h
-GAS to deposit contract
-Website
-UI / UX
+* Dev Time: 300h
+* GAS to deposit contract
+* Website
+* UI / UX
 
 
 ### Uncertainties
